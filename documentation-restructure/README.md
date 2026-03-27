@@ -29,6 +29,7 @@ A local-first product with:
 - `POST /v1/model/profiles/:name/activate`: set active profile.
 - `DELETE /v1/model/profiles/:name`: delete non-default profile.
 - `POST /v1/evaluate`: run the full loop with the active model profile.
+- `GET /v1/self-validate`: run the system's own claims through its own engine — produces a legitimacy report backed by functional probes, not descriptions.
 - `POST /v1/feedback`: submit post-launch feedback and receive iteration decision using active thresholds.
 ## Quick start
 1. Install dependencies:
