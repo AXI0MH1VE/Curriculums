@@ -11,7 +11,7 @@
     "desktop:pack": "electron-builder --dir",
     "desktop:dist": "electron-builder --win nsis",
     "test": "node --test",
-    "lint": "node --check src/index.js src/app.js src/engine.js src/store.js src/validators.js src/modelConfig.js src/modelProfiles.js src/kbProtocol.js desktop/main.js public/app.js"
+    "lint": "node --check src/index.js src/app.js src/engine.js src/store.js src/dataStore.js src/validators.js src/modelConfig.js src/modelProfiles.js src/kbProtocol.js src/modules/audit.js src/modules/intake.js src/modules/claimVerifier.js src/modules/evidenceScorer.js src/modules/mvpGenerator.js src/modules/utilityPrioritizer.js src/modules/deliveryLayer.js desktop/main.js public/app.js"
   },
   "keywords": [
     "mvp",
