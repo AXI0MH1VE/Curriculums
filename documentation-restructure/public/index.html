@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Validation-First Local Model Studio</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <p class="kicker">Local Model Control Center</p>
+        <h1>Validation-First MVP Studio</h1>
+        <p class="subtitle">
+          Minimal interface, full model control. Customize scoring behavior, run evaluations, and gate scaling decisions in one local workspace.
+        </p>
+        <div class="hero-actions">
+          <button class="button button-secondary nav-jump" data-target="abilityMapSection">Ability Modules</button>
+          <button class="button button-secondary nav-jump" data-target="tutorialSection">Quick Tutorial</button>
+          <button class="button button-secondary nav-jump" data-target="outputSection">Output Console</button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel panel-wide" id="abilityMapSection">
+          <h2>Operator Ability Modules (UAX)</h2>
+          <p class="panel-note">
+            Each module below maps to a working component in this interface. Use jump buttons to move directly to that utility.
+          </p>
+          <div class="module-grid">
+            <article class="module-card">
+              <h3>Profile Manager</h3>
+              <p>Create, save, activate, and remove model profiles for repeatable operator workflows.</p>
+              <button class="button button-secondary module-jump" data-target="modelProfilesSection">Open Module</button>
+            </article>
+            <article class="module-card">
+              <h3>Model Controls</h3>
+              <p>Adjust evidence weighting, thresholds, strict mode, style presets, and feature generation behavior.</p>
+              <button class="button button-secondary module-jump" data-target="modelControlsSection">Open Module</button>
+            </article>
+            <article class="module-card">
+              <h3>Concept Evaluation</h3>
+              <p>Run Problem → Validation → Decision processing and generate a gated MVP architecture output.</p>
+              <button class="button button-secondary module-jump" data-target="conceptEvaluationSection">Open Module</button>
+            </article>
+            <article class="module-card">
+              <h3>Feedback Gate</h3>
+              <p>Process post-launch utility signals and receive scale, revise, or remove decisions.</p>
+              <button class="button button-secondary module-jump" data-target="feedbackGateSection">Open Module</button>
+            </article>
+            <article class="module-card">
+              <h3>Knowledge Base Workflow Builder</h3>
+              <p>Generate standardized institutional artifacts with attribution, transparency, and constraint compatibility checks.</p>
+              <button class="button button-secondary module-jump" data-target="kbWorkflowSection">Open Module</button>
+            </article>
+            <article class="module-card">
+              <h3>Output & Audit Console</h3>
+              <p>Review structured JSON results and copy artifacts for operator review, approval, and external use.</p>
+              <button class="button button-secondary module-jump" data-target="outputSection">Open Module</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel panel-wide" id="tutorialSection">
+          <h2>Short Tutorial</h2>
+          <p class="panel-note">
+            Follow this guided sequence to learn every core utility in under three minutes.
+          </p>
+          <div class="tutorial-shell">
+            <p id="tutorialTitle" class="tutorial-title"></p>
+            <p id="tutorialDescription" class="tutorial-description"></p>
+            <p id="tutorialProgress" class="tutorial-progress"></p>
+            <div class="row">
+              <button id="tutorialStartButton" class="button button-secondary">Start Tutorial</button>
+              <button id="tutorialPrevButton" class="button button-secondary">Previous</button>
+              <button id="tutorialNextButton" class="button button-primary">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="modelProfilesSection">
+          <h2>Model Profiles</h2>
+          <p class="panel-note">Choose an active profile or save a new one after adjusting model controls.</p>
+          <div class="field">
+            <label for="profileSelect">Profile</label>
+            <select id="profileSelect"></select>
+          </div>
+          <div class="row">
+            <button id="activateProfileButton" class="button button-primary">Activate Profile</button>
+            <button id="deleteProfileButton" class="button button-secondary">Delete</button>
+          </div>
+          <div class="field">
+            <label for="profileName">Save As</label>
+            <input id="profileName" type="text" placeholder="profile_name" />
+          </div>
+          <button id="saveProfileButton" class="button button-primary">Save Profile</button>
+        </section>
+
+        <section class="panel" id="modelControlsSection">
+          <h2>Model Controls</h2>
+          <p class="panel-note">Adjust model behavior and scoring dynamics.</p>
+
+          <div class="field">
+            <label for="style">Style</label>
+            <select id="style">
+              <option value="minimalist">Minimalist</option>
+              <option value="executive">Executive</option>
+              <option value="technical">Technical</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="featureLabel">Feature Label</label>
+            <input id="featureLabel" type="text" value="Feature" />
+          </div>
+          <div class="field">
+            <label for="maxFeatures">Max Features</label>
+            <input id="maxFeatures" type="number" min="1" max="12" value="5" />
+          </div>
+
+          <fieldset>
+            <legend>Evidence Weights</legend>
+            <div class="field">
+              <label for="weightTrustworthiness">Trustworthiness</label>
+              <input id="weightTrustworthiness" type="range" min="0" max="1" step="0.01" value="0.35" />
+            </div>
+            <div class="field">
+              <label for="weightFreshness">Freshness</label>
+              <input id="weightFreshness" type="range" min="0" max="1" step="0.01" value="0.2" />
+            </div>
+            <div class="field">
+              <label for="weightConsistency">Consistency</label>
+              <input id="weightConsistency" type="range" min="0" max="1" step="0.01" value="0.25" />
+            </div>
+            <div class="field">
+              <label for="weightProjectedBenefit">Projected Benefit</label>
+              <input id="weightProjectedBenefit" type="range" min="0" max="1" step="0.01" value="0.2" />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Thresholds</legend>
+            <div class="field">
+              <label for="thresholdEvidence">Evidence Score</label>
+              <input id="thresholdEvidence" type="range" min="0" max="1" step="0.01" value="0.65" />
+            </div>
+            <div class="field">
+              <label for="thresholdScale">Scale Threshold</label>
+              <input id="thresholdScale" type="range" min="0" max="1" step="0.01" value="0.7" />
+            </div>
+            <div class="field">
+              <label for="thresholdRevise">Revise Threshold</label>
+              <input id="thresholdRevise" type="range" min="0" max="1" step="0.01" value="0.45" />
+            </div>
+          </fieldset>
+
+          <div class="check-row">
+            <label><input id="includeRiskRegister" type="checkbox" checked /> Include Risk Register</label>
+          </div>
+          <div class="check-row">
+            <label><input id="strictMode" type="checkbox" /> Strict Mode</label>
+          </div>
+        </section>
+
+        <section class="panel panel-wide" id="conceptEvaluationSection">
+          <h2>Concept Evaluation</h2>
+          <p class="panel-note">Enter concept context and claims evidence, then execute a full validation-gated evaluation.</p>
+          <div class="field">
+            <label for="concept">Concept</label>
+            <input id="concept" type="text" placeholder="e.g., AI-driven triage assistant for founders" />
+          </div>
+          <div class="field">
+            <label for="targetDemographic">Target Demographic</label>
+            <input id="targetDemographic" type="text" placeholder="e.g., solo SaaS operators" />
+          </div>
+          <div class="field">
+            <label for="painPoints">Pain Points (comma-separated)</label>
+            <input id="painPoints" type="text" placeholder="fragmented demand signals, delayed validation" />
+          </div>
+          <div class="field">
+            <label for="desiredOutcomes">Desired Outcomes (comma-separated)</label>
+            <input id="desiredOutcomes" type="text" placeholder="faster validated shipping, lower rework" />
+          </div>
+          <div class="field">
+            <label for="claimsJson">Claims JSON</label>
+            <textarea id="claimsJson" rows="11"></textarea>
+          </div>
+          <button id="evaluateButton" class="button button-primary">Run Evaluation</button>
+        </section>
+
+        <section class="panel panel-wide" id="feedbackGateSection">
+          <h2>Feedback Gate</h2>
+          <p class="panel-note">Submit utility scores to receive a scale/revise/remove operator decision recommendation.</p>
+          <div class="field">
+            <label for="feedbackJson">Feedback Signals JSON</label>
+            <textarea id="feedbackJson" rows="6"></textarea>
+          </div>
+          <button id="feedbackButton" class="button button-primary">Run Feedback Decision</button>
+        </section>
+        <section class="panel panel-wide" id="kbWorkflowSection">
+          <h2>Knowledge Base Workflow Builder</h2>
+          <p class="panel-note">
+            Generate standardized Problem -> Solution -> Value artifacts with attribution, transparency, and constraint compatibility checks.
+          </p>
+          <div class="field">
+            <label for="kbPayloadJson">Workflow Payload JSON</label>
+            <textarea id="kbPayloadJson" rows="16"></textarea>
+          </div>
+          <div class="row">
+            <button id="kbTemplateButton" class="button button-secondary">Load Template</button>
+            <button id="kbGenerateButton" class="button button-primary">Generate KB Artifact</button>
+          </div>
+        </section>
+
+        <section class="panel panel-wide" id="outputSection">
+          <h2>Output</h2>
+          <p class="panel-note">All module results appear here as structured JSON artifacts for operator review and reuse.</p>
+          <div id="status" class="status"></div>
+          <pre id="output"></pre>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

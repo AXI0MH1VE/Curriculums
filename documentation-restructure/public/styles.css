@@ -1,0 +1,259 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-muted: #f2f3f5;
+  --line: #e3e5e8;
+  --ink: #101218;
+  --ink-soft: #4a505b;
+  --accent: #20242f;
+  --accent-ink: #ffffff;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 45%);
+  color: var(--ink);
+  font-family: "Inter", "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.45;
+}
+
+.shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.2rem 1.2rem 2.8rem;
+}
+
+.hero {
+  margin-bottom: 1.5rem;
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+h1 {
+  margin: 0.25rem 0 0.3rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.hero-actions {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.grid {
+  display: grid;
+  gap: 0.95rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.panel-wide {
+  grid-column: span 2;
+}
+
+h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.04rem;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.94rem;
+}
+
+.panel-note {
+  margin: -0.2rem 0 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.34rem;
+  margin-bottom: 0.72rem;
+}
+
+label,
+legend {
+  color: var(--ink-soft);
+  font-size: 0.83rem;
+  letter-spacing: 0.02em;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.62rem 0.68rem;
+}
+
+textarea {
+  resize: vertical;
+  font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 0.82rem;
+}
+
+input[type="range"] {
+  padding: 0;
+}
+
+fieldset {
+  margin: 0 0 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7rem;
+  background: var(--surface-muted);
+}
+
+.row {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.module-grid {
+  display: grid;
+  gap: 0.72rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.module-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-muted);
+  padding: 0.8rem;
+}
+
+.module-card p {
+  margin: 0 0 0.72rem;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.tutorial-shell {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-muted);
+  padding: 0.8rem;
+}
+
+.tutorial-title {
+  margin: 0 0 0.3rem;
+  font-weight: 600;
+}
+
+.tutorial-description {
+  margin: 0 0 0.45rem;
+  color: var(--ink-soft);
+}
+
+.tutorial-progress {
+  margin: 0 0 0.7rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.button {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.58rem 0.75rem;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.button-secondary {
+  background: transparent;
+  border-color: var(--line);
+}
+
+.check-row {
+  margin-bottom: 0.45rem;
+}
+
+.check-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status {
+  min-height: 1.1rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.panel.is-focused {
+  border-color: #9ea6b5;
+  box-shadow: 0 0 0 2px rgba(63, 72, 90, 0.12), var(--shadow);
+}
+
+pre {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.72rem;
+  background: #0f1117;
+  color: #e7ecf4;
+  overflow: auto;
+  min-height: 220px;
+  font-size: 0.79rem;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-wide {
+    grid-column: span 1;
+  }
+}
